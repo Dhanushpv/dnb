@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<form action="/Classallocation" method="post">
+    <div class="mb-3">
+        <select class="form-select form-select-xl mb-3" aria-label=".form-select-xl example" class="form-control" name="depname" id="id_department">
+        <option selected>-----Exam-----</option>
+        {% for i in exams%}
+        <option value="{{i.id}}">{{i.examname}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    {% csrf_token %}
+
+
+    <div class="mb-3">
+        <select class="form-select form-select-xl mb-3" aria-label=".form-select-xl example" class="form-control" name="depname" id="id_department">
+        <option selected>-----Select Class-----</option>
+        {% for i in room%}
+        <option value="{{i.id}}">{{i.roomname}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <select class="form-select form-select-xl mb-3" aria-label=".form-select-xl example" class="form-control" name="depname" id="id_department">
+      <option selected>-----Select Staff-----</option>
+      {% for i in staffform %}
+      <option value="{{i.id}}">{{i.username}}</option>
+      {% endfor %}
+    </select>
+  </div>
+    <input type="submit">
+    <!-- {{ form.as_p }} -->
+
+
+
+
+{%endblock%}

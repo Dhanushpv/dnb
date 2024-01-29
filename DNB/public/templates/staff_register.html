@@ -1,0 +1,36 @@
+
+
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="w3l-skill-breadcrum">
+    <div class="breadcrum">
+      <!-- <div class="container">
+        <p><a href="">Home</a>   /  Login</p>
+      </div> -->
+    </div>
+  </section>
+  <!-- //breadcrum -->
+  <!-- contact form -->
+  <section class="w3l-contacts-12" id="contact">
+    <div class="container py-5">
+      <div class="contacts12-main py-md-3">
+        <div class="header-section text-center">
+          <h3 class="mb-md-5 mb-4">Register Form</h3>
+        </div>
+        <form method="post" class="login-form" action="staff_register">
+         
+          {% csrf_token %}
+          {{ form.as_p }}<br>
+
+          <div class="form-actions text-center">
+            <a href="/forgot_password" class="forgot-password-link">Forgot Password?</a>
+            <br>
+            <input type="submit" id="logsubmit" class="btn btn-primary theme-button" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  {%endblock%}

@@ -1,0 +1,21 @@
+<form action="/add_department" method="post">
+    <!-- <section class="w3l-skill-breadcrum">
+        <div class="breadcrum">
+          
+        </div>
+      </section>
+     
+      <section class="w3l-contacts-12" id="contact">
+        <div class="container py-5">
+          <div class="contacts12-main py-md-3">
+            <div class="header-section text-center">
+              <h3 class="mb-md-5 mb-4">Add department</h3> -->
+    {% csrf_token %}
+    {{form.as_p}}
+    <!-- <label for="Department">Department Name</label>
+    <input type="text" id="sum"><br>
+    <label for="Discription">Discription</label>
+    <input type="textarea" id="sums"><br>
+     -->
+    <input type="submit">
+</form>

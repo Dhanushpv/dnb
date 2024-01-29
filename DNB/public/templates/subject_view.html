@@ -1,0 +1,40 @@
+
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">subname</th>
+      
+        <th scope="col"> department</th>
+        <th scope="col">semester</th>
+
+
+        <!-- <th scope="col">Date_of_birth</th>
+        <th scope="col">Experience</th>
+        <th scope="col">Qualification</th>
+        <th scope="col">Department</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in sub %}
+      <tr>
+        <td>{{i.subname}}</td>
+        <!-- <td>{{i.description}}</td> -->
+        <td>{{i.department.departmentname}}</td>
+        <td>{{i.semester.semestername}}</td>
+        <!-- <td>{{i.date_of_birth}}</td>
+        <td>{{i.experience}}</td>
+        <td>{{i.qualification}}</td>
+        <td>{{i.department}}</td> -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{%endblock%}
+
+
+

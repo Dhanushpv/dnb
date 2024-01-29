@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  
+  <form action="/subject" method="post">
+
+    <div class="mb-3">
+        <select class="form-select form-select-xl mb-3" aria-label=".form-select-xl example" class="form-control" name="depname" id="id_department">
+        <option selected>-----Select Department-----</option>
+        {% for i in department%}
+        <option value="{{i.id}}">{{i.departmentname}}</option>
+     {% endfor %}
+      </select>
+    </div>
+      
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="semname" id="id_semester">
+                <option selected>---- Select Semester------</option>
+        {% for i in semester%}
+        <option value="{{i.id}}" data-did="{{i.department.id}}">{{i.semestername}}</option>
+        {% endfor %}
+    
+        <!-- <input type="submit"> -->
+        {% csrf_token %}
+        
+      </select>
+    
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">SUBJECT NAME</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="subname">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+ 
+<script>
+
+    $("#id_department").change(function(){
+      $("#id_semester").val('');
+      $("#id_semester").children('option').hide();
+      var id_department=$(this).val();
+      $("#id_semester").children("option[data-did="+id_department+"]").show();
+        
+    })
+    </script>
+
+{%endblock%}

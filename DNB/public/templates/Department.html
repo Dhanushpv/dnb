@@ -1,0 +1,31 @@
+
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Department</th>
+        <th scope="col">Description</th>
+        <!-- <th scope="col">Date_of_birth</th>
+        <th scope="col">Experience</th>
+        <th scope="col">Qualification</th>
+        <th scope="col">Department</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in department%}
+      <tr>
+        <td>{{i.departmentname}}</td>
+        <td>{{i.description}}</td>
+        <!-- <td>{{i.date_of_birth}}</td>
+        <td>{{i.experience}}</td>
+        <td>{{i.qualification}}</td>
+        <td>{{i.department}}</td> -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{%endblock%}
